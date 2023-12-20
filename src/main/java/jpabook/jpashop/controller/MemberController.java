@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -48,6 +50,14 @@ public class MemberController {
             return "members/createMemberForm";
         }
         return "redirect:/"; // "/" 는 home 으로 보낸다.
+    }
+
+    // 회원 목록 조회
+    @GetMapping("/members")
+    public String list(Model model) { // ! 실무에서는 엔티티를 그대로 넘기지 말고 Dto 로 변환해서 넘기자
+        List<Member> members = memberService.findMembers(); // JPA(JPQL)모든 멤버 조회
+        model.addAttribute("members",members);  // Model 에 담아서 화면(members/memberList)에 넘긴다
+        return "members/memberList";
     }
 
 
