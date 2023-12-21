@@ -29,7 +29,7 @@ public class OrderItem {
     private int count; // 주문 수량
 
 
-    //==생성 메서드==//
+    //==생성 메서드==// 생성자 대신 -> 정적 팩토리 메서드라는 패턴 사용
     public static OrderItem createOrderItem(Item item, int orderPrice, int count) { // 쿠폰 등.. 떄문에 orderPrice 를 따로 받는다
         OrderItem orderItem = new OrderItem();
         orderItem.setItem(item);

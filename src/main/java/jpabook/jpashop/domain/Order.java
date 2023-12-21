@@ -50,7 +50,7 @@ public class Order {
         delivery.setOrder(this);
     }
 
-    //==생성 메서드==//
+    //==생성 메서드==// 생성자 대신 -> 정적 팩토리 메서드라는 패턴 사용
     public static Order createOrder(Member member, Delivery delivery, OrderItem... orderItems){
         Order order = new Order();
         order.setMember(member);
