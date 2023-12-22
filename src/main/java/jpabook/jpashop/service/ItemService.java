@@ -24,8 +24,8 @@ public class ItemService {
 
     @Transactional
     public void updateItem(Long itemId, UpdateBookDto bookDtoDto){
-        Book findItem = (Book)itemRepository.findOne(itemId);
-        findItem.changeBook(bookDtoDto);
+        Book findItem = (Book)itemRepository.findOne(itemId); // 영속상태
+        findItem.changeBook(bookDtoDto); // 변경감지(dirty checking)
 //        findItem.setName(itemDto.getName());
 //        findItem.setPrice(itemDto.getPrice());
 //        findItem.setStockQuantity(itemDto.getStockQuantity());
